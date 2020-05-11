@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Producto</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		span {
+			color: red;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #003c8f;
+		}
+
+		.form-container {
+			background-color: #e8eaf6;
+			margin-top: 5em;
+			border-radius: 3em;
+			padding: 3em;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="form-container col col-lg-6">
+				<h1>Ingrese un Producto</h1>
+				<form th:action="@{/validar}" th:object="${producto}" method="post">
+					<label>Nombre del Producto</label>
+					<input class="form-control" th:field="*{nombre}" type="text" placeholder="e.g. Goma de Mascar">
+					<span th:errors="*{nombre}"></span><br>
+
+					<label>Descripcion del Producto</label>
+					<input class="form-control" th:field="*{descripcion}" type="text"
+						placeholder="e.g. Contiene 25 piezas">
+					<span th:errors="*{descripcion}"></span><br>
+
+					<label>Precio del Producto</label>
+					<input class="form-control" th:field="*{precio}" type="text" placeholder="2.50">
+					<span th:errors="*{precio}"></span><br>
+
+					<label>Fecha de Vencimiento</label>
+					<input class="form-control" th:field="*{vencimiento}" type="text" placeholder="02/03/2020">
+					<span th:errors="*{vencimiento}"></span><br>
+
+					<button style="margin-top: 1em;background-color: #757de8;" class="btn btn-primary btn-block"
+						type="submit">Ingresar Producto</button>
+				</form>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
